@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Bonus Calculator | Shivarth Dronachary</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">GAP INCOME CALCULATOR</div>
+      <h1>Performance Bonus Calculator</h1>
+      <p>Calculate your estimated bonus using PV × GAP % × BV.</p>
+      <small>By Shivarth Dronachary</small>
+    </div>
+    <button id="themeBtn" class="icon-btn" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="section-title">
+        <div><span class="step">01</span><h2>Your Details</h2></div>
+        <span class="formula">Own = PV × Level% × BV</span>
+      </div>
+      <div class="grid three">
+        <label>Your Level (%)
+          <input id="yourLevel" type="number" min="0" max="100" step="0.01" value="16">
+        </label>
+        <label>Your PV
+          <input id="yourPV" type="number" min="0" step="0.01" value="550">
+        </label>
+        <label>BV per PV
+          <input id="bv" type="number" min="0" step="0.01" value="20">
+        </label>
+      </div>
+    </section>
+
+    <section class="card structure-card">
+      <div class="section-title">
+        <div><span class="step">02</span><h2>Six-Leg Structure</h2></div>
+        <span class="formula">Your network PV structure</span>
+      </div>
+
+      <div class="network-wrap">
+        <div class="network-you">
+          <div class="network-title">YOU</div>
+          <div class="network-meta"><span id="treeYourLevel">16%</span> | <span id="treeYourPV">550</span> PV</div>
+        </div>
+
+        <div class="tree-stem"></div>
+        <div class="tree-branch"></div>
+        <div id="networkLegs" class="network-legs"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div><span class="step">03</span><h2>Six-Leg Calculator</h2></div>
+        <button id="addLeg" class="btn primary">＋ Add Leg</button>
+      </div>
+      <p class="muted">Enter the PV and level of each leg. Blank legs are ignored.</p>
+      <div id="legs"></div>
+    </section>
+
+    <section class="dashboard">
+      <div class="stat"><span>Own Income</span><strong id="ownIncome">₹0.00</strong></div>
+      <div class="stat"><span>Leg GAP Income</span><strong id="legIncome">₹0.00</strong></div>
+      <div class="stat highlight"><span>Estimated Total PB</span><strong id="totalIncome">₹0.00</strong></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div><span class="step">04</span><h2>Calculation Breakdown</h2></div>
+        <div class="actions">
+          <button id="saveBtn" class="btn secondary">💾 Save</button>
+          <button id="loadBtn" class="btn secondary">↩ Load</button>
+          <button id="csvBtn" class="btn secondary">📥 CSV</button>
+          <button id="printBtn" class="btn secondary">🖨 Print / PDF</button>
+          <button id="resetBtn" class="btn danger">Reset</button>
+        </div>
+      </div>
+      <div id="breakdown" class="breakdown"></div>
+    </section>
+
+    <section class="card info">
+      <h2>Formula</h2>
+      <div class="formula-grid">
+        <div><b>GAP %</b><br>Your Level % − Leg Level %</div>
+        <div><b>Leg Income</b><br>Leg PV × GAP % × BV</div>
+        <div><b>Total PB</b><br>Own Income + All Leg Income</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Educational/business calculator. Verify applicable compensation-plan rules, eligibility and adjustments before relying on actual payouts.</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
